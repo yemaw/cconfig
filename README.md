@@ -1,4 +1,4 @@
 # CConfig
-> Centeralized Configuration Service
+> Centralized Configuration Service
 
 
