@@ -1,6 +1,7 @@
 {
     "service1" : {
-        "url" : "http://example.com/api"
+        "url" : "http://example.com/api",
+        "track" : false
     },
     "google_analytics": {
         "tracking_id" : "UA-123456-1"
