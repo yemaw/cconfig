@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="http://bootswatch.com/sandstone/bootstrap.min.css" media="screen" title="no title" charset="utf-8">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js" charset="utf-8"></script>
+    <script src="app_info.js" charset="utf-8"></script>
+    <script src="../cconfig.js" charset="utf-8"></script>
+    <style media="screen">
+        body{
+            margin:10px 50px 30px 50px;
+        }
+        .code { white-space: pre; font-family: monospace;}
+        #response-wrapper {
+            padding:20px;
+            border:1px solid #a0a0a0;
+            background: #f0f0f0;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+<h3>App Info</h3>
+<form class="form-horizontal">
+    <fieldset>
+        <div class="form-group hidden">
+            <label for="url" class="col-lg-2 control-label">URL</label>
+            <div class="col-lg-10">
+                <input type="text" class="form-control" id="url" placeholder="/application/nyp/library/cconfig" value="">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="client" class="col-lg-2 control-label">Client</label>
+            <div class="col-lg-10">
+                <input type="text" class="form-control" id="client" placeholder="ios" value="ios">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="version" class="col-lg-2 control-label">Version</label>
+            <div class="col-lg-10">
+                <input type="text" class="form-control" id="version" placeholder="2.0.0" value="2.0.0">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="channel" class="col-lg-2 control-label">Channel</label>
+            <div class="col-lg-10">
+                <input type="text" class="form-control" id="channel" placeholder="prod" value="prod">
+            </div>
+        </div>
+    </fieldset>
+</form>
+<hr />
+
+<h3>Response</h3>
+<div id="response-wrapper">
+    <code id="response" class="code"></code>
+</div>
+<hr />
+<script type="text/javascript">
+
+    window.url = '../';
+
+    var CConfig = CConfigClass(url, app_info, {
+        first_success: function(){
+            console.log('first_success');
+        },
+        first_error: function(){
+            console.log('first_error');
+        },
+        each_success: function(){
+            console.log('each_success');
+        },
+        each_error: function(){
+            console.log('each_error');
+        },
+        refresh_seconds: 3,
+        debug: true
+    });
+
+    function update(){
+        url = $('#url').val();
+        app_info.client = $('#client').val();
+        app_info.version = $('#version').val();
+        app_info.channel = $('#channel').val();
+
+        CConfig.reload();
+
+        $.ajax({
+            url: url,
+            data: app_info,
+            dataType: "json",
+            type: "GET",
+            crossDomain: true,
+            success: function (response) {
+                //console.log(response);
+                window.response = response;
+                $('#response').text(JSON.stringify(response, null, 4));
+            },
+            error: function (xhr, status) {
+                $('#response').text("Error: "+xhr.statusText);
+            }
+        });
+    }
+
+    $(document).ready(function(){
+        $('#url').val(url);
+
+        update();
+
+        $('form input').keyup(function(){
+            update();
+        });
+    });
+
+</script>
+</body>
+</html>
