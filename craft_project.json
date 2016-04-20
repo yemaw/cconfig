@@ -3,8 +3,8 @@
     "version": "0.0.1"
   },
   {
-    "homeUrl": "",
-    "description": "",
+    "homeUrl": "yemaw.me",
+    "description": "test",
     "actionLibraries": {
       "google": false
     }
