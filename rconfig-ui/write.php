@@ -7,7 +7,7 @@ function isJson($string) {
 
 if($_POST['file'] && $_POST['content']){
     if(isJson($_POST['content'])){
-        file_put_contents($_POST['file'], $_POST['content']);
+        $length = file_put_contents($_POST['file'], $_POST['content']);
         if(!$length){
             echo 'Something wrong. Please check write permission.';
         } else {
