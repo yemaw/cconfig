@@ -1,0 +1,5 @@
+{
+	"app_updater" : {
+		"on_new_app_version_available": "notify"
+	}
+}

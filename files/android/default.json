@@ -1,0 +1,10 @@
+{
+	"app_updater" : {
+		"on_new_app_version_available": "notify",
+		"app_latest_version": "1.1.0",
+		"app_latest_version_code": 20
+	}
+
+
+
+}

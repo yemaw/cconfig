@@ -1,9 +1,19 @@
 {
-    "service1" : {
-        "url" : "http://example.com/api",
-        "track" : false
-    },
     "google_analytics": {
-        "tracking_id" : "UA-123456-1"
+        "enabled": true,
+        "check_host": "example.com",
+        "tracking_id": "UA-12345678-1"
+    },
+    "google_adwords": {
+        "enabled": false
+    },
+    "hotjar": {
+        "enabled": true,
+        "check_host": "example.com",
+        "site_id": 189204
+    },
+    "onesignal": {
+        "enabled": true,
+        "appId": "123456-12345-3456-123456-68941c3152be"
     }
 }
