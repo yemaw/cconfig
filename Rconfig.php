@@ -1,6 +1,6 @@
 <?php
 
-class CConfig{
+class RConfig{
 
     private $files_dir = 'files';
 

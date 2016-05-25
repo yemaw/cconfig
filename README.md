@@ -1,4 +1,4 @@
-# CConfig
-> Centralized Configuration Service
+# RConfig
+> Remote Configuration Service
 
 

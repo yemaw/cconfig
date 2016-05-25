@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="http://bootswatch.com/sandstone/bootstrap.min.css" media="screen" title="no title" charset="utf-8">
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js" charset="utf-8"></script>
     <script src="app_info.js" charset="utf-8"></script>
-    <script src="../cconfig.js" charset="utf-8"></script>
+    <script src="../rconfig.js" charset="utf-8"></script>
     <style media="screen">
         body{
             margin:10px 50px 30px 50px;
@@ -61,7 +61,7 @@
 
     window.url = '../';
 
-    var CConfig = CConfigClass(url, app_info, {
+    var Config = RConfig(url, app_info, {
         first_success: function(){
             console.log('first_success');
         },
@@ -84,7 +84,7 @@
         app_info.version = $('#version').val();
         app_info.channel = $('#channel').val();
 
-        CConfig.reload();
+        Config.reload();
 
         $.ajax({
             url: url,

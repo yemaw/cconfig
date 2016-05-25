@@ -6,9 +6,9 @@ if($_GET['debug']){
     error_reporting(-1);
 }
 
-include_once('./cconfig.php');
+include_once('./rconfig.php');
 
-$Config = new CConfig(
+$Config = new RConfig(
     isset($_GET['client']) ? $_GET['client'] : '',
     isset($_GET['version']) ? $_GET['version'] : '',
     isset($_GET['channel']) ? $_GET['channel'] : ''

@@ -1,4 +1,4 @@
-var CConfigClass = (function(api_url, app_info, options){
+var RConfig = (function(api_url, app_info, options){
 
     /* Validation */
     options = options || {};
