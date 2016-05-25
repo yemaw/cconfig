@@ -8,7 +8,11 @@ function isJson($string) {
 if($_POST['file'] && $_POST['content']){
     if(isJson($_POST['content'])){
         file_put_contents($_POST['file'], $_POST['content']);
-        echo 'Success';
+        if(!$length){
+            echo 'Something wrong. Please check write permission.';
+        } else {
+            echo 'Done: length is '.$length;
+        }
     } else {
         echo 'Error: Invalid JSON format';
     }

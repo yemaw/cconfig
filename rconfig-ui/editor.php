@@ -119,7 +119,7 @@ function printRConfigEditor (){
                 <td style="width: 250px;vertical-align: top;">
                     <h4>Editor</h4>
                     <?php echo php_file_tree(CONFIG_FILES_PATH, "javascript:readConfig('[link]');"); ?>
-                </td>
+                </td>g
                 <td style="vertical-align: top;">
                     <textarea class="form-control" id="myTextArea" style="background-color: #454545;color:#ffffff;width:100%;min-height: 300px;"></textarea>
                     <br />
